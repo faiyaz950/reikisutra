@@ -1,0 +1,8 @@
+        <!-- HINDI QUOTE -->
+        <blockquote class="quote-block" lang="hi">
+            <span class="quote-mark">“</span>
+            गति जब स्वयं में ठहर जाए तो वह स्थिरता है।<br/>
+            यात्रा जब आरंभ और अंत से मुक्त हो जाए<br/>
+            तो वह ब्रह्मांड की अनंत समृद्धि है।
+            <span class="quote-mark">”</span>
+        </blockquote>
