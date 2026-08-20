@@ -585,6 +585,7 @@
         .navbar.open .mobile-panel { display: flex; }
         .mobile-panel a { font-family: 'Poppins', 'Montserrat', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #E0E0E0; transition: color var(--tr); }
         .mobile-panel a:hover { color: #D4AF37; }
+        .mobile-panel .join-btn-mobile { display: none; margin-top: 6px; align-self: flex-start; }
         
         /* =====================================================
            HERO CONTENT (Centered Composition)
@@ -597,8 +598,8 @@
             align-items: center; 
             text-align: center; 
             flex: 1; 
-            padding: 28px 40px 32px; 
-            margin-top: 4px;
+            padding: 20px 40px 32px; 
+            margin-top: -20px;
             max-width: 960px; 
             margin-left: auto;
             margin-right: auto;
@@ -864,27 +865,30 @@
         .cta-icon svg { width: 14px; height: 14px; stroke: #0A0E1A; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
         
         /* PREMIUM FLOATING FEATURE DOCK */
-        .features { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 16px;
-            width: 100%; 
-            max-width: 1260px; 
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            width: 100%;
+            max-width: 1180px;
             margin-top: auto;
-            padding: 44px 20px;
+            padding: 24px 14px;
         }
-        .feature { 
-            padding: 36px 24px 32px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            text-align: center; 
-            position: relative; 
-            background: none;
-            border: none;
-            border-radius: 0;
-            box-shadow: none;
-            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        .feature {
+            padding: 24px 14px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(165deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.015) 50%, rgba(6,4,0,0.16) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.16);
+            border-radius: 20px;
+            backdrop-filter: blur(18px) saturate(130%);
+            -webkit-backdrop-filter: blur(18px) saturate(130%);
+            box-shadow: 0 4px 26px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.07);
+            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease, background 0.5s ease;
             opacity: 0;
             animation: featureCardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
         }
@@ -896,28 +900,43 @@
             from { opacity: 0; transform: translateY(35px) scale(0.93); }
             to   { opacity: 1; transform: translateY(0) scale(1); }
         }
-        .feature:not(:last-child)::after {
+        .feature::before {
             content: '';
             position: absolute;
-            right: 0;
-            top: 12%;
-            bottom: 12%;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.25) 40%, rgba(255, 240, 180, 0.15) 50%, rgba(212, 175, 55, 0.25) 60%, transparent);
+            top: 0; left: 16%; right: 16%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 236, 184, 0.65), transparent);
+            opacity: 0.55;
+            transition: opacity 0.5s ease, left 0.5s ease, right 0.5s ease;
+        }
+        .feature::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at 50% -10%, rgba(212, 175, 55, 0.10), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
         }
         .feature:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
+            border-color: rgba(220, 180, 80, 0.48);
+            background: linear-gradient(165deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 50%, rgba(6,4,0,0.20) 100%);
+            box-shadow: 0 24px 54px rgba(0,0,0,0.38), 0 0 44px rgba(212, 175, 55, 0.14), inset 0 1px 0 rgba(255,255,255,0.10);
         }
+        .feature:hover::before { left: 6%; right: 6%; opacity: 0.9; }
+        .feature:hover::after { opacity: 1; }
 
         .feature-icon-wrap {
-            width: 110px;
-            height: 110px;
+            width: 86px;
+            height: 86px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.07) 0%, transparent 70%);
-            margin-bottom: 24px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.02) 55%, transparent 75%);
+            margin-bottom: 14px;
             position: relative;
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -926,115 +945,146 @@
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            border: 1px dashed rgba(212, 175, 55, 0.0);
-            transition: border-color 0.5s ease, transform 0.8s ease;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(241, 211, 122, 0.65), rgba(212, 175, 55, 0.05) 45%, rgba(212, 175, 55, 0.45) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+            transition: opacity 0.5s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .feature:hover .feature-icon-wrap {
-            transform: translateY(-8px);
+            transform: translateY(-6px) scale(1.04);
         }
         .feature:hover .feature-icon-wrap::before {
-            border-color: rgba(212, 175, 55, 0.15);
-            transform: rotate(45deg);
+            opacity: 1;
+            transform: rotate(150deg);
         }
 
         .feature-icon-img {
-            width: 72px;
-            height: 72px;
+            width: 60px;
+            height: 60px;
             object-fit: contain;
             transition: filter 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            filter: drop-shadow(0 3px 12px rgba(212, 175, 55, 0.18));
+            filter: drop-shadow(0 3px 12px rgba(212, 175, 55, 0.20));
         }
         .feature:hover .feature-icon-img {
             filter: drop-shadow(0 0 24px rgba(212, 175, 55, 0.55)) drop-shadow(0 6px 20px rgba(255, 215, 0, 0.25));
-            transform: scale(1.12);
+            transform: scale(1.1);
         }
 
         .feature-line {
-            width: 32px;
+            width: 26px;
             height: 1.5px;
             background: linear-gradient(90deg, transparent, #D4AF37, transparent);
             border-radius: 1px;
-            margin-bottom: 18px;
-            opacity: 0.35;
+            margin-bottom: 12px;
+            opacity: 0.4;
             transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
         }
         .feature:hover .feature-line {
-            width: 56px;
-            opacity: 0.85;
+            width: 54px;
+            opacity: 0.9;
         }
 
-        .feature h3 { 
-            font-family: 'Montserrat', 'Poppins', sans-serif; 
-            font-size: 17px; 
-            letter-spacing: 3.5px; 
-            text-transform: uppercase; 
-            color: #D4AF37; 
-            font-weight: 600; 
+        .feature h3 {
+            font-family: 'Montserrat', 'Poppins', sans-serif;
+            font-size: clamp(13px, 1.6vw, 16.5px);
+            letter-spacing: clamp(1.2px, 0.3vw, 3.2px);
+            text-transform: uppercase;
+            color: #D4AF37;
+            font-weight: 600;
             margin-bottom: 10px;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+            max-width: 100%;
             transition: color 0.4s ease, text-shadow 0.4s ease, letter-spacing 0.4s ease;
         }
         .feature:hover h3 {
             color: #F5E6A3;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.40);
-            letter-spacing: 5px;
+            letter-spacing: 4.4px;
         }
-        .feature p { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 13.5px; 
-            color: rgba(240, 228, 195, 0.60); 
-            line-height: 1.9; 
+        .feature p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13.5px;
+            color: rgba(240, 228, 195, 0.68);
+            line-height: 1.85;
             font-weight: 300;
-            max-width: 220px;
+            max-width: 210px;
             transition: color 0.4s ease;
         }
         .feature:hover p {
-            color: rgba(240, 228, 195, 0.95);
+            color: rgba(240, 228, 195, 0.97);
         }
         
         /* RESTORED TRUST STRIP */
         .trust-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 16px auto 40px;
+            width: 100vw;
+            max-width: 1180px;
+            margin: 16px calc(50% - 50vw) 40px;
             padding: 0 20px;
             position: relative;
             z-index: 10;
             animation: fadeUpLg 0.8s 2.8s cubic-bezier(0.22, 1, 0.36, 1) both;
         }
         .trust-strip {
-            display: none;
+            display: grid;
             grid-template-columns: repeat(4, 1fr);
+            align-items: center;
             width: 100%;
-            background: linear-gradient(180deg, rgba(6, 4, 0, 0.92) 0%, rgba(10, 8, 2, 0.95) 100%);
-            backdrop-filter: blur(24px) saturate(130%);
-            -webkit-backdrop-filter: blur(24px) saturate(130%);
+            background: linear-gradient(165deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.03) 35%, rgba(10,18,36,0.16) 100%);
+            backdrop-filter: blur(22px) saturate(140%);
+            -webkit-backdrop-filter: blur(22px) saturate(140%);
             border: none;
-            border-top: 1.5px solid rgba(220, 170, 75, 0.50);
-            border-radius: 0;
-            padding: 20px 0;
-            box-shadow: 0 -4px 30px rgba(0,0,0,0.40);
+            border-radius: 44px;
+            padding: 18px 52px;
             position: relative;
             overflow: hidden;
+            box-shadow:
+                0 20px 55px rgba(0,0,0,0.35),
+                0 4px 18px rgba(0,0,0,0.22),
+                inset 0 1px 0 rgba(255,255,255,0.14),
+                inset 0 0 30px rgba(255,255,255,0.03);
         }
         .trust-strip::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(255, 210, 70, 0.60) 20%, rgba(255, 245, 180, 0.80) 50%, rgba(255, 210, 70, 0.60) 80%, transparent 100%);
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.4px;
+            background: linear-gradient(135deg, rgba(255, 226, 158, 0.85) 0%, rgba(212, 175, 55, 0.25) 30%, rgba(212, 175, 55, 0.55) 60%, rgba(255, 226, 158, 0.75) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
             pointer-events: none;
+            z-index: 3;
         }
         .trust-strip::after {
             content: none;
         }
+        .trust-flourish {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 62px;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .trust-flourish-l { left: 10px; }
+        .trust-flourish-r { right: 10px; transform: translateY(-50%) scaleX(-1); }
         .trust-item {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             gap: 14px;
-            padding: 0 24px;
+            padding: 0 22px;
             position: relative;
+            z-index: 2;
         }
         .trust-item:not(:last-child)::after {
             content: '';
@@ -1043,32 +1093,28 @@
             top: 50%;
             transform: translateY(-50%);
             width: 1px;
-            height: 36px;
-            background: linear-gradient(to bottom, transparent, rgba(220,170,75,0.40), transparent);
+            height: 38px;
+            background: linear-gradient(to bottom, transparent, rgba(220,170,75,0.45), transparent);
         }
         .trust-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(220, 170, 75, 0.50);
-            background: rgba(220, 170, 75, 0.06);
+            width: 34px;
+            height: 34px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 0 12px rgba(220, 170, 75, 0.08);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
         }
         .trust-item:hover .trust-icon {
-            border-color: rgba(220, 170, 75, 0.75);
-            box-shadow: 0 0 20px rgba(220, 170, 75, 0.20);
+            transform: scale(1.12);
+            filter: drop-shadow(0 0 10px rgba(220,170,75,0.55));
         }
         .trust-icon svg {
-            width: 17px;
-            height: 17px;
+            width: 30px;
+            height: 30px;
             stroke: #E7C56D;
             fill: none;
-            stroke-width: 1.5;
+            stroke-width: 1.3;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
@@ -1076,8 +1122,8 @@
             display: flex;
             flex-direction: column;
         }
-        .t-title { font-size: 11.5px; font-weight: 700; color: #E7C56D; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.3; }
-        .t-sub { font-size: 10px; color: rgba(245,235,215,0.55); line-height: 1.4; margin-top: 3px; font-weight: 300; }
+        .t-title { font-size: 13px; font-weight: 700; color: #F5EAD3; letter-spacing: 0.8px; text-transform: uppercase; line-height: 1.3; }
+        .t-sub { font-size: 11px; color: rgba(200, 195, 190, 0.62); line-height: 1.4; margin-top: 4px; font-weight: 400; }
         
         /* SCROLL INDICATOR */
         .scroll-indicator {
@@ -1125,9 +1171,10 @@
             .contact-item { font-size: 9.5px; }
             .contact-icon svg { width: 13px; height: 13px; }
             .social { width: 24px; height: 24px; }
-            .trust-strip { grid-template-columns: repeat(2, 1fr); gap: 16px 0; padding: 20px 0; }
+            .trust-strip { grid-template-columns: repeat(2, 1fr); gap: 20px 0; padding: 26px 36px; border-radius: 32px; }
             .trust-item:nth-child(2)::after { display: none; }
             .trust-item:not(:last-child)::after { height: 28px; }
+            .trust-flourish { display: none; }
         }
         @media (max-width: 640px) {
             .navbar { width: calc(100% - 16px); margin: 6px auto 0; height: 102px; }
@@ -1148,7 +1195,7 @@
             .social { width: 22px; height: 22px; flex-shrink: 0; }
             .mobile-panel { top: 62px; box-shadow: 0 18px 30px rgba(0,0,0,0.45); }
 
-            .hero-content { padding: 16px 16px 16px; margin-top: 4px; }
+            .hero-content { padding: 10px 16px 16px; margin-top: -8px; }
             .hero-logo-wrapper { width: 160px; height: 160px; margin-bottom: -22px; }
             .wordmark { font-size: clamp(40px, 10vw, 56px); letter-spacing: 1px; margin-top: 0; margin-bottom: 6px; }
             .ornament { width: min(280px, 84%); margin-bottom: 6px; gap: 8px; }
@@ -1157,24 +1204,30 @@
             .quote-block { font-size: 13px; max-width: 100%; margin-bottom: 14px; padding: 8px 16px; }
             .cta-btn { height: 44px; min-width: 170px; font-size: 10.5px; margin-bottom: 20px; }
             
-            .trust-strip { gap: 12px 0; padding: 16px 0; border-radius: 16px; }
+            .trust-strip { gap: 16px 0; padding: 22px 20px; border-radius: 26px; }
             .trust-item { padding: 0 12px; gap: 10px; }
-            .trust-icon { width: 28px; height: 28px; }
-            .trust-icon svg { width: 14px; height: 14px; }
-            .t-title { font-size: 9.5px; }
-            .t-sub { font-size: 8px; }
+            .trust-icon { width: 26px; height: 26px; }
+            .trust-icon svg { width: 22px; height: 22px; }
+            .t-title { font-size: 10px; letter-spacing: 0.4px; }
+            .t-sub { font-size: 8.5px; }
+            .trust-flourish { display: none; }
 
-            .features { grid-template-columns: repeat(2, 1fr); gap: 8px 0; padding: 24px 10px; }
-            .feature:nth-child(2n)::after { display: none; }
-            .feature-icon { width: 40px; height: 40px; }
+            .features { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 24px 10px; }
+            .feature { padding: 32px 18px 26px; }
+            .feature-icon-wrap { width: 96px; height: 96px; margin-bottom: 16px; }
+            .feature-icon-img { width: 68px; height: 68px; }
+        }
+        @media (max-width: 480px) {
+            .join-btn { display: none; }
+            .mobile-panel .join-btn-mobile { display: inline-flex; }
         }
         @media (max-width: 420px) {
             .logo-symbol { width: 44px; height: 44px; }
             .logo-text { font-size: 19.4px; letter-spacing: 0.3px; }
             .logo-subtitle { display: block; font-size: 7.3px; letter-spacing: 0.5px; max-width: 170px; white-space: nowrap; }
             .social { width: 20px; height: 20px; }
-            .features { grid-template-columns: 1fr; gap: 4px 0; }
-            .feature::after { display: none !important; }
+            .features { grid-template-columns: 1fr; gap: 14px; }
+            .feature { padding: 30px 24px 26px; }
         }
         @media (max-width: 768px) {
             .fog-back { bottom: 20%; height: 25%; }
@@ -1259,6 +1312,7 @@
             <a href="#">RESOURCES</a>
             <a href="#">BLOG</a>
             <a href="#">CONTACT</a>
+            <a href="#" class="join-btn join-btn-mobile">JOIN NOW</a>
         </div>
 
         <!-- CONTACT CURVE STROKE OVERLAY -->
@@ -1421,28 +1475,6 @@
             </span>
         </a>
 
-    <!-- TRUST STRIP -->
-    <div class="trust-section">
-        <div class="trust-strip">
-            <div class="trust-item">
-                <div class="trust-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-                <div class="t-text"><div class="t-title">Scientific Spirituality</div><div class="t-sub">Ancient Wisdom | Modern Science</div></div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-                <div class="t-text"><div class="t-title">Global Community</div><div class="t-sub">Universal | Inclusive | Compassionate</div></div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-                <div class="t-text"><div class="t-title">Trusted &amp; Authentic</div><div class="t-sub">Guided by Experience | Built on Truth</div></div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-                <div class="t-text"><div class="t-title">Anytime, Anywhere</div><div class="t-sub">Learn | Practice | Transform</div></div>
-            </div>
-        </div>
-    </div>
-
         <!-- FEATURES -->
         <div class="features">
             <div class="feature">
@@ -1478,6 +1510,52 @@
                 <p>Transform your life, transform the world.</p>
             </div>
         </div>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-section">
+        <div class="trust-strip">
+            <svg class="trust-flourish trust-flourish-l" viewBox="0 0 40 84" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="flourishGradL" x1="0" y1="0" x2="40" y2="84" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#FFF3C4"/>
+                        <stop offset="50%" stop-color="#E8C547"/>
+                        <stop offset="100%" stop-color="#B8892E"/>
+                    </linearGradient>
+                </defs>
+                <path d="M34 6C20 4 8 14 9 28c1 12 12 18 20 14 6-3 6-11 0-13-5-2-9 2-7 7" stroke="url(#flourishGradL)" stroke-width="1.3" stroke-linecap="round"/>
+                <circle cx="22" cy="36" r="1.8" fill="#F1D37A"/>
+                <path d="M12 50c-2 8 2 18 10 22" stroke="url(#flourishGradL)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+            <div class="trust-item">
+                <div class="trust-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+                <div class="t-text"><div class="t-title">Scientific Spirituality</div><div class="t-sub">Ancient Wisdom | Modern Science</div></div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+                <div class="t-text"><div class="t-title">Global Community</div><div class="t-sub">Universal | Inclusive | Compassionate</div></div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path class="star-fill" d="M12 7.5l1.4 2.9 3.2.5-2.3 2.2.5 3.2-2.8-1.5-2.8 1.5.5-3.2-2.3-2.2 3.2-.5z" fill="#E7C56D" stroke="none"/></svg></div>
+                <div class="t-text"><div class="t-title">Trusted &amp; Authentic</div><div class="t-sub">Guided by Experience | Built on Truth</div></div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+                <div class="t-text"><div class="t-title">Anytime, Anywhere</div><div class="t-sub">Learn | Practice | Transform</div></div>
+            </div>
+            <svg class="trust-flourish trust-flourish-r" viewBox="0 0 40 84" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="flourishGradR" x1="0" y1="0" x2="40" y2="84" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#FFF3C4"/>
+                        <stop offset="50%" stop-color="#E8C547"/>
+                        <stop offset="100%" stop-color="#B8892E"/>
+                    </linearGradient>
+                </defs>
+                <path d="M34 6C20 4 8 14 9 28c1 12 12 18 20 14 6-3 6-11 0-13-5-2-9 2-7 7" stroke="url(#flourishGradR)" stroke-width="1.3" stroke-linecap="round"/>
+                <circle cx="22" cy="36" r="1.8" fill="#F1D37A"/>
+                <path d="M12 50c-2 8 2 18 10 22" stroke="url(#flourishGradR)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+        </div>
+    </div>
 
     </div> <!-- End hero-content -->
 
