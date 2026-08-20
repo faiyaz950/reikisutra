@@ -20,6 +20,8 @@
             --gold-light: #F1D37A;
             --gold-header: #D4AF37;
             --gold-bright: #FFD700;
+            --gold: #D4AF37;
+            --ink-dim: rgba(238,228,210,.46);
             --nav-text: #E0E0E0;
             --cream: #F3E7C9;
             --ivory: #EEE4D2;
@@ -127,6 +129,7 @@
            MOUNTAIN FOG + MOVING CLOUDS
            ========================================================= */
         .mountain-atmosphere {
+        
             position: absolute;
             inset: 0;
             z-index: 2;
@@ -362,6 +365,10 @@
         @keyframes logoFloat {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-4px); }
+        }
+        @keyframes plPulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.18); opacity: 1; }
         }
         @keyframes flarePulse {
             0%, 100% { opacity: 0.28; }
@@ -1034,19 +1041,29 @@
             grid-template-columns: repeat(4, 1fr);
             align-items: center;
             width: 100%;
-            background: linear-gradient(165deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.03) 35%, rgba(10,18,36,0.16) 100%);
-            backdrop-filter: blur(22px) saturate(140%);
-            -webkit-backdrop-filter: blur(22px) saturate(140%);
+            background: linear-gradient(165deg, rgba(255,255,255,0.11) 0%, rgba(255,255,255,0.03) 35%, rgba(10,18,36,0.18) 100%);
+            backdrop-filter: blur(24px) saturate(150%);
+            -webkit-backdrop-filter: blur(24px) saturate(150%);
             border: none;
             border-radius: 44px;
-            padding: 18px 52px;
+            padding: 20px 54px;
             position: relative;
             overflow: hidden;
             box-shadow:
-                0 20px 55px rgba(0,0,0,0.35),
-                0 4px 18px rgba(0,0,0,0.22),
-                inset 0 1px 0 rgba(255,255,255,0.14),
-                inset 0 0 30px rgba(255,255,255,0.03);
+                0 24px 60px rgba(0,0,0,0.38),
+                0 6px 20px rgba(0,0,0,0.24),
+                0 0 55px rgba(212,175,55,0.07),
+                inset 0 1px 0 rgba(255,255,255,0.18),
+                inset 0 0 40px rgba(255,255,255,0.03);
+            transition: box-shadow 0.5s ease;
+        }
+        .trust-strip:hover {
+            box-shadow:
+                0 28px 72px rgba(0,0,0,0.42),
+                0 8px 24px rgba(0,0,0,0.28),
+                0 0 75px rgba(212,175,55,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.22),
+                inset 0 0 40px rgba(255,255,255,0.04);
         }
         .trust-strip::before {
             content: '';
@@ -1060,9 +1077,22 @@
             mask-composite: exclude;
             pointer-events: none;
             z-index: 3;
+            animation: trustBorderShimmer 4.5s ease-in-out infinite;
         }
         .trust-strip::after {
-            content: none;
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: 8%;
+            right: 8%;
+            height: 65%;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.14) 0%, transparent 72%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        @keyframes trustBorderShimmer {
+            0%, 100% { opacity: 0.82; }
+            50% { opacity: 1; }
         }
         .trust-flourish {
             position: absolute;
@@ -1070,9 +1100,10 @@
             transform: translateY(-50%);
             width: 34px;
             height: 62px;
-            opacity: 0.6;
+            opacity: 0.65;
             pointer-events: none;
             z-index: 1;
+            filter: drop-shadow(0 0 5px rgba(220,170,75,0.30));
         }
         .trust-flourish-l { left: 10px; }
         .trust-flourish-r { right: 10px; transform: translateY(-50%) scaleX(-1); }
@@ -1085,6 +1116,10 @@
             padding: 0 22px;
             position: relative;
             z-index: 2;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .trust-item:hover {
+            transform: translateY(-3px);
         }
         .trust-item:not(:last-child)::after {
             content: '';
@@ -1093,8 +1128,9 @@
             top: 50%;
             transform: translateY(-50%);
             width: 1px;
-            height: 38px;
-            background: linear-gradient(to bottom, transparent, rgba(220,170,75,0.45), transparent);
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, rgba(220,170,75,0.55) 50%, transparent);
+            box-shadow: 0 0 6px rgba(220,170,75,0.25);
         }
         .trust-icon {
             width: 34px;
@@ -1103,11 +1139,26 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            position: relative;
             transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
         }
+        .trust-icon::before {
+            content: '';
+            position: absolute;
+            inset: -11px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.20) 0%, transparent 72%);
+            opacity: 0.65;
+            transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            z-index: -1;
+        }
         .trust-item:hover .trust-icon {
-            transform: scale(1.12);
-            filter: drop-shadow(0 0 10px rgba(220,170,75,0.55));
+            transform: scale(1.14);
+            filter: drop-shadow(0 0 12px rgba(220,170,75,0.60));
+        }
+        .trust-item:hover .trust-icon::before {
+            opacity: 1;
+            transform: scale(1.2);
         }
         .trust-icon svg {
             width: 30px;
@@ -1122,8 +1173,10 @@
             display: flex;
             flex-direction: column;
         }
-        .t-title { font-size: 13px; font-weight: 700; color: #F5EAD3; letter-spacing: 0.8px; text-transform: uppercase; line-height: 1.3; }
-        .t-sub { font-size: 11px; color: rgba(200, 195, 190, 0.62); line-height: 1.4; margin-top: 4px; font-weight: 400; }
+        .t-title { font-size: 13px; font-weight: 700; color: #F7EEDB; letter-spacing: 0.9px; text-transform: uppercase; line-height: 1.3; text-shadow: 0 1px 3px rgba(0,0,0,0.45); transition: color 0.35s ease, text-shadow 0.35s ease; }
+        .trust-item:hover .t-title { color: #FFF6DD; text-shadow: 0 0 16px rgba(220,170,75,0.40); }
+        .t-sub { font-size: 11px; color: rgba(205, 200, 195, 0.62); line-height: 1.4; margin-top: 4px; font-weight: 400; transition: color 0.35s ease; }
+        .trust-item:hover .t-sub { color: rgba(228, 222, 210, 0.88); }
         
         /* SCROLL INDICATOR */
         .scroll-indicator {
@@ -1241,6 +1294,37 @@
             *, *::before, *::after { animation: none !important; transition: none !important; }
             .logo-aura, .logo-halo, .logo-particles { display: none; }
         }
+
+        /* FOOTER (from About) */
+        .site-footer{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(5,8,16,.6) 0%,#04060D 100%);border-top:1px solid rgba(212,175,55,.16);padding:76px 40px 0;margin-top:0}
+        .site-footer ul{list-style:none}
+        .footer-lotus{position:absolute;right:-30px;bottom:10px;width:340px;height:340px;opacity:.06;pointer-events:none;animation:logoFloat 9s ease-in-out infinite}
+        .footer-grid{position:relative;z-index:1;max-width:1220px;margin:0 auto;display:grid;grid-template-columns:1.35fr 1fr 1fr 1.15fr;gap:44px;padding-bottom:48px}
+        .footer-brand .f-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+        .footer-brand .f-logo img{width:43px;height:43px;display:block}
+        .footer-brand .f-logo .logo-text{font-size:20px;filter:none}
+        .footer-brand .f-logo .logo-subtitle{font-size:7.2px;color:rgba(255,255,255,.85)}
+        .footer-brand p{font-size:11.7px;line-height:1.8;color:var(--ink-dim);font-weight:300;max-width:310px;margin-bottom:18px;font-family:'Poppins','Montserrat',sans-serif}
+        .footer-social{display:flex;gap:10px}
+        .footer-social .social{width:28px;height:28px;animation:none}
+        .footer-col h5{font-family:'Cinzel','Playfair Display',serif;font-size:13.5px;font-weight:600;letter-spacing:.7px;color:var(--gold);margin-bottom:18px;position:relative;padding-bottom:11px}
+        .footer-col h5::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+        .footer-col ul li{margin-bottom:10px}
+        .footer-col ul li a{font-family:'Poppins','Montserrat',sans-serif;font-size:11.7px;color:rgba(238,228,210,.62);font-weight:300;display:inline-flex;align-items:center;gap:7px;transition:color .25s ease,gap .25s ease,transform .25s ease}
+        .footer-col ul li a:hover{color:var(--gold-light);gap:10px;transform:translateX(2px)}
+        .footer-col ul li a::before{content:'\276F';font-size:8px;color:var(--gold);opacity:.7}
+        .footer-contact li{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;font-family:'Poppins','Montserrat',sans-serif;font-size:11.7px;color:rgba(238,228,210,.62);font-weight:300;line-height:1.6}
+        .footer-contact li svg{flex-shrink:0;width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.6;margin-top:2px}
+        .footer-bottom{position:relative;z-index:1;max-width:1220px;margin:0 auto;border-top:1px solid rgba(212,175,55,.14);padding:22px 0 25px;
+          display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:'Poppins','Montserrat',sans-serif;font-size:10.8px;color:rgba(238,228,210,.42);font-weight:300}
+        .footer-bottom .heart{color:#D4536B;animation:plPulse 1.9s ease-in-out infinite;display:inline-block}
+        @media (max-width:992px){
+          .footer-grid{grid-template-columns:1fr 1fr}
+        }
+        @media (max-width:640px){
+          .footer-grid{grid-template-columns:1fr;gap:34px;padding-bottom:30px}
+          .site-footer{padding:52px 20px 0}
+        }
     </style>
 </head>
 <body>
@@ -1290,8 +1374,8 @@
 
             <!-- MENU -->
             <nav class="nav-menu">
-                <a href="#" class="active">HOME</a>
-                <a href="#">ABOUT</a>
+                <a href="index.html" class="active">HOME</a>
+                <a href="about.html">ABOUT</a>
                 <a href="#">COURSES</a>
                 <a href="#">RESOURCES</a>
                 <a href="#">BLOG</a>
@@ -1306,8 +1390,8 @@
 
         <!-- MOBILE PANEL -->
         <div class="mobile-panel" id="mobile-menu">
-            <a href="#" class="active">HOME</a>
-            <a href="#">ABOUT</a>
+            <a href="index.html" class="active">HOME</a>
+            <a href="about.html">ABOUT</a>
             <a href="#">COURSES</a>
             <a href="#">RESOURCES</a>
             <a href="#">BLOG</a>
@@ -1566,6 +1650,66 @@
     </div>
 
 </section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <svg class="footer-lotus" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <g stroke="#D4AF37" stroke-width="1.2">
+      <path d="M100 190c0-60 0-100 0-160"/><path d="M100 60c-30 20-40 60-30 100 25-15 35-55 30-100z"/>
+      <path d="M100 60c30 20 40 60 30 100-25-15-35-55-30-100z"/><path d="M100 90c-45 5-70 35-70 75 40-5 65-35 70-75z"/>
+      <path d="M100 90c45 5 70 35 70 75-40-5-65-35-70-75z"/>
+    </g>
+  </svg>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="f-logo">
+        <img src="RS logo nav bar.png" alt="ReikiSutra Logo">
+        <div>
+          <div class="logo-text"><span class="logo-reiki">Reiki</span><span class="logo-sutra">Sutra</span></div>
+          <div class="logo-subtitle">Natural Pathway to Inner Peace</div>
+        </div>
+      </div>
+      <p>A universal pathway to understand energy, awaken consciousness and live a blissful life.</p>
+      <div class="footer-social">
+        <a href="#" class="social" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" class="social" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="social" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="#" class="social" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></a>
+        <a href="#" class="social" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+        <li><a href="#">Courses</a></li><li><a href="#">Research</a></li>
+        <li><a href="#">Blog</a></li><li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="#">Wisdom Library</a></li><li><a href="#">Meditation Guide</a></li>
+        <li><a href="#">Healing Tools</a></li><li><a href="#">Free Resources</a></li>
+        <li><a href="#">FAQ</a></li><li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact Us</h5>
+      <ul class="footer-contact">
+        <li><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.54.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.54 1 1 0 01-.26 1.09z"/></svg><span>+91 12345 67890</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@reikisutra.com</span></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg><span>www.reikisutra.com</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>ReikiSutra Retreat Center, Rishikesh, Uttarakhand, India</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 ReikiSutra. All Rights Reserved.</span>
+    <span>Designed with <span class="heart">&hearts;</span> for Conscious Living</span>
+  </div>
+</footer>
 
 <script>
     // Hamburger

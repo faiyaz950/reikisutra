@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us — ReikiSutra | Our Journey, Our Purpose</title>
+<meta name="description" content="Discover the story, mission, vision and core values behind ReikiSutra — a universal pathway to understand energy, awaken consciousness and live a blissful life." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* =========================================================
+   0. TOKENS
+========================================================= */
+:root{
+  --bg:#060912;
+  --bg-2:#080D18;
+  --bg-3:#0B1322;
+  --ink:#EEE4D2;
+  --ink-soft:rgba(238,228,210,.66);
+  --ink-dim:rgba(238,228,210,.46);
+
+  --gold:#D4AF37;
+  --gold-light:#F1D37A;
+  --gold-pale:#FFF6D8;
+  --gold-deep:#C9A227;
+  --champagne:#DDAF52;
+  --cream:#F3E7C9;
+
+  --aura-1:rgba(212,175,55,.14);
+  --aura-2:rgba(120,84,200,.13);
+  --aura-3:rgba(40,150,160,.10);
+
+  --line:rgba(212,175,55,.16);
+  --glass:linear-gradient(160deg,rgba(255,255,255,.065) 0%,rgba(255,255,255,.018) 42%,rgba(6,10,20,.24) 100%);
+
+  --r-lg:28px; --r-md:20px; --r-sm:14px;
+  --tr:.4s cubic-bezier(.22,1,.36,1);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins','Montserrat',sans-serif;
+  background:var(--bg); color:var(--ink);
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+::selection{background:rgba(212,175,55,.30);color:#FFF8E1}
+
+/* scrollbar */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#05070E}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#D4AF37,#7A5E18);border-radius:10px;border:2px solid #05070E}
+
+/* =========================================================
+   1. AMBIENT BACKGROUND SYSTEM
+========================================================= */
+.bg-stage{position:fixed;inset:0;z-index:-3;background:
+  radial-gradient(1200px 700px at 12% -5%,var(--aura-1),transparent 60%),
+  radial-gradient(900px 620px at 92% 12%,var(--aura-2),transparent 62%),
+  radial-gradient(1000px 700px at 50% 108%,var(--aura-3),transparent 60%),
+  linear-gradient(180deg,#060912 0%,#080D18 45%,#060912 100%);
+}
+.bg-orb{position:fixed;border-radius:50%;filter:blur(90px);z-index:-2;pointer-events:none;opacity:.5}
+.orb-a{width:520px;height:520px;top:-140px;left:-120px;background:radial-gradient(circle,rgba(212,175,55,.30),transparent 68%);animation:drift1 26s ease-in-out infinite}
+.orb-b{width:460px;height:460px;top:38%;right:-160px;background:radial-gradient(circle,rgba(126,86,204,.26),transparent 68%);animation:drift2 32s ease-in-out infinite}
+.orb-c{width:520px;height:520px;bottom:-180px;left:32%;background:radial-gradient(circle,rgba(46,160,168,.20),transparent 68%);animation:drift3 38s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(70px,60px) scale(1.12)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-80px,-50px) scale(1.08)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-70px) scale(1.14)}}
+
+#dust{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* =========================================================
+   2. PRELOADER
+========================================================= */
+#preloader{position:fixed;inset:0;z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  background:radial-gradient(circle at 50% 45%,#0C1424 0%,#05070E 70%);transition:opacity .8s ease,visibility .8s ease}
+#preloader.done{opacity:0;visibility:hidden}
+.pl-mandala{width:110px;height:110px;position:relative;display:grid;place-items:center}
+.pl-mandala span{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(212,175,55,.45)}
+.pl-mandala span:nth-child(1){animation:plSpin 3.2s linear infinite}
+.pl-mandala span:nth-child(2){inset:14px;border-style:dashed;animation:plSpin 4.6s linear infinite reverse}
+.pl-mandala span:nth-child(3){inset:30px;border-color:rgba(241,211,122,.8);box-shadow:0 0 22px rgba(212,175,55,.45);animation:plPulse 1.8s ease-in-out infinite}
+.pl-mandala img{position:relative;z-index:2;width:58px;height:58px;object-fit:contain;
+  filter:drop-shadow(0 0 18px rgba(212,175,55,.55));animation:logoFloat 3.2s ease-in-out infinite}
+@keyframes plSpin{to{transform:rotate(360deg)}}
+@keyframes plPulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.18);opacity:1}}
+.pl-text{font-family:'Cinzel',serif;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:rgba(241,211,122,.75)}
+
+/* =========================================================
+   3. SCROLL PROGRESS + BACK TO TOP
+========================================================= */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:120;
+  background:linear-gradient(90deg,#C9A227,#FFD700,#F1D37A);box-shadow:0 0 12px rgba(255,215,0,.6)}
+#toTop{position:fixed;right:26px;bottom:26px;z-index:110;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(150deg,rgba(255,255,255,.10),rgba(6,10,20,.5));border:1px solid rgba(212,175,55,.4);
+  backdrop-filter:blur(14px);cursor:pointer;opacity:0;transform:translateY(18px) scale(.85);pointer-events:none;transition:var(--tr)}
+#toTop.show{opacity:1;transform:none;pointer-events:auto}
+#toTop:hover{background:linear-gradient(150deg,rgba(212,175,55,.28),rgba(6,10,20,.5));box-shadow:0 8px 26px rgba(212,175,55,.28);transform:translateY(-3px)}
+#toTop svg{width:18px;height:18px;stroke:var(--gold-light);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* =========================================================
+   4. NAVBAR
+========================================================= */
+.nav-wrap{position:sticky;top:0;z-index:60;padding:0 30px;transition:padding .4s ease}
+.nav-wrap.stuck{padding-top:0}
+.navbar{position:relative;z-index:40;width:100%;height:132px;margin:12px auto 0;overflow:hidden;
+  background:rgba(10,22,48,.34);backdrop-filter:blur(32px) saturate(140%);-webkit-backdrop-filter:blur(32px) saturate(140%);
+  border:1px solid rgba(255,255,255,.10);border-radius:34px;
+  box-shadow:0 10px 25px rgba(0,0,0,.35),0 30px 60px rgba(0,0,0,.28),0 50px 100px rgba(0,0,0,.18),
+             0 0 0 1px rgba(212,175,55,.08),inset 0 1px 0 rgba(255,255,255,.10);
+  transition:background .4s ease,box-shadow .4s ease,height .4s ease,border-radius .4s ease}
+.nav-wrap.stuck .navbar{background:rgba(8,16,36,.72);box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 0 1px rgba(212,175,55,.14),inset 0 1px 0 rgba(255,255,255,.08)}
+.nav-main{position:relative;z-index:20;width:100%;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 32px}
+.logo-area{display:flex;align-items:center;align-self:flex-start;gap:14px;min-width:280px;height:132px}
+.logo-symbol{width:92px;height:92px;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;
+  animation:logoFloat 5.5s ease-in-out infinite;filter:drop-shadow(0 2px 14px rgba(221,175,82,.35)) drop-shadow(0 0 22px rgba(241,211,122,.18))}
+.logo-symbol::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px dashed rgba(212,175,55,.28);animation:plSpin 22s linear infinite}
+.logo-symbol-img{width:100%;height:100%;object-fit:contain}
+.logo-text{font-family:'Cinzel','Playfair Display',serif;font-weight:600;font-size:29px;letter-spacing:1px;line-height:1;white-space:nowrap;filter:drop-shadow(0 2px 8px rgba(0,0,0,.45))}
+.logo-reiki{color:#F5E6C8}
+.logo-sutra{color:#D4AF37;text-shadow:0 0 12px rgba(212,175,55,.35)}
+.logo-subtitle{margin-top:5px;font-family:'Montserrat',sans-serif;font-weight:400;color:#fff;font-size:9.1px;letter-spacing:1.7px;text-transform:uppercase;white-space:nowrap}
+.nav-menu{display:flex;align-items:center;gap:32px;height:100%}
+.nav-menu a{position:relative;font-family:'Poppins',sans-serif;font-weight:500;color:#E0E0E0;text-transform:uppercase;font-size:12.5px;letter-spacing:1.8px;cursor:pointer;transition:color .25s ease,transform .25s ease}
+.nav-menu a:hover,.nav-menu a.active{color:#D4AF37}
+.nav-menu a:hover{transform:translateY(-1px)}
+.nav-menu a:focus-visible{outline:2px solid #FFD700;outline-offset:4px;border-radius:2px}
+.nav-menu a.active::after,.nav-menu a.hvr::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:1.5px;
+  background:linear-gradient(90deg,transparent,#D4AF37 20%,#FFD700 50%,#D4AF37 80%,transparent);box-shadow:0 0 8px rgba(255,215,0,.55)}
+.nav-menu a.active::before,.nav-menu a.hvr::before{content:"";position:absolute;left:50%;bottom:-11px;width:5px;height:5px;border-radius:50%;background:#FFD700;transform:translateX(-50%);box-shadow:0 0 8px 2px rgba(255,215,0,.75)}
+@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes btnShine{0%,68%{transform:translateX(-130%)}88%,100%{transform:translateX(130%)}}
+@keyframes curveShimmer{0%,100%{opacity:.72}50%{opacity:1}}
+@keyframes iconPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+.join-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(241,211,122,.5);
+  height:44px;padding:0 24px;border-radius:24px;background:linear-gradient(180deg,#FFD54A 0%,#E6B422 55%,#C9A227 100%);color:#1A1208;
+  font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;
+  box-shadow:0 4px 14px rgba(212,175,55,.28);transition:transform .3s var(--ease),box-shadow .3s ease}
+.join-btn::after{content:"";position:absolute;top:0;left:0;width:45%;height:100%;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-130%);animation:btnShine 4.8s 1.8s ease-in-out infinite;pointer-events:none}
+.join-btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 26px rgba(212,175,55,.45)}
+.join-btn:focus-visible{outline:2px solid #FFD700;outline-offset:3px}
+.nav-actions{display:flex;align-items:center;gap:14px}
+
+.contact-bar{position:absolute;z-index:10;left:0;right:0;bottom:0;height:44px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 28px 0 440px;
+  background:rgba(10,32,78,.22)!important;
+  mask-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 46' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0 46 L 230 46 C 252 46, 262 0, 308 0 L 1000 0 L 1000 46 Z' fill='black'/%3E%3C/svg%3E");
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 46' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0 46 L 230 46 C 252 46, 262 0, 308 0 L 1000 0 L 1000 46 Z' fill='black'/%3E%3C/svg%3E");
+  mask-size:100% 100%;-webkit-mask-size:100% 100%}
+.contact-curve-stroke{position:absolute;z-index:30;pointer-events:none;left:0;bottom:0;width:100%;height:44px;animation:curveShimmer 3.6s ease-in-out infinite}
+.contact-bottom-fade{position:absolute;z-index:37;left:440px;bottom:0;width:230px;height:3px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(8,24,56,.35) 18%,rgba(8,24,56,.72) 50%,rgba(8,24,56,.35) 82%,transparent)}
+.contact-info{display:flex;align-items:center;gap:18px;flex:1}
+.contact-item{position:relative;display:flex;align-items:center;gap:10px;color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.4px;white-space:nowrap}
+.contact-item:hover .contact-icon{animation:iconPulse .55s ease}
+.contact-icon{color:#D4AF37;display:flex;align-items:center;justify-content:center;transition:transform .25s ease}
+.contact-icon svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.separator{width:1px;height:22px;flex-shrink:0;background:linear-gradient(to bottom,transparent,rgba(225,169,69,.55),transparent)}
+.socials{display:flex;align-items:center;gap:8px}
+.social{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(212,175,55,.7);
+  background:rgba(10,32,72,.22);color:#D4AF37;backdrop-filter:blur(8px);cursor:pointer;transition:background .25s ease,transform .3s var(--ease),box-shadow .25s ease}
+.social svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.social:hover{background:rgba(221,175,82,.22);transform:translateY(-3px) scale(1.1);box-shadow:0 6px 16px rgba(212,175,55,.4)}
+.nav-main .social{width:34px;height:34px}
+
+.hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;margin-left:4px;align-items:center;justify-content:center;min-width:44px;min-height:44px;transition:transform .25s ease}
+.hamburger:hover{transform:scale(1.08)}
+.hamburger:focus-visible{outline:2px solid #FFD700;outline-offset:3px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-panel{display:none;flex-direction:column;gap:16px;padding:24px;position:absolute;top:62px;left:0;width:100%;
+  background:rgba(8,12,24,.96);backdrop-filter:blur(16px);border-top:1px solid rgba(221,175,82,.25);border-radius:0 0 24px 24px;z-index:15;box-shadow:0 10px 20px rgba(0,0,0,.35)}
+.navbar.open .mobile-panel{display:flex}
+.mobile-panel a{font-family:'Poppins',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#E0E0E0;transition:color var(--tr)}
+.mobile-panel a:hover{color:#D4AF37}
+.mobile-panel .join-btn-mobile{display:none;margin-top:6px;align-self:flex-start}
+
+/* =========================================================
+   5. SHARED PRIMITIVES
+========================================================= */
+.section{position:relative;max-width:1220px;margin:0 auto;padding:64px 40px}
+.section-tight{padding-top:40px;padding-bottom:40px}
+
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:11px;letter-spacing:3.1px;
+  text-transform:uppercase;color:var(--gold);padding:6px 14px 6px 11px;border:1px solid rgba(212,175,55,.28);border-radius:40px;
+  background:rgba(212,175,55,.06);backdrop-filter:blur(8px)}
+.eyebrow svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.5;animation:plSpin 14s linear infinite}
+
+.sec-head{text-align:center;margin-bottom:36px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.sec-heading{font-family:'Cinzel','Playfair Display',serif;font-weight:700;font-size:clamp(26px,3.2vw,40px);letter-spacing:.5px;line-height:1.2;
+  background:linear-gradient(100deg,#FFFDF4 0%,#F1D37A 38%,#FFF8DC 52%,#C9A227 70%,#FFFDF4 100%);
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:sheen 7s linear infinite}
+@keyframes sheen{to{background-position:220% center}}
+.sec-sub{max-width:640px;font-size:14px;line-height:1.85;color:var(--ink-dim);font-weight:300}
+.divider{display:flex;align-items:center;justify-content:center;gap:10px;width:180px}
+.divider i{height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(212,175,55,.6))}
+.divider i:last-child{background:linear-gradient(90deg,rgba(212,175,55,.6),transparent)}
+.divider b{width:6px;height:6px;transform:rotate(45deg);background:var(--gold);box-shadow:0 0 10px rgba(212,175,55,.8)}
+
+/* glass card + animated border + spotlight */
+.glass{position:relative;background:var(--glass);border:1px solid var(--line);border-radius:var(--r-lg);
+  backdrop-filter:blur(18px) saturate(135%);-webkit-backdrop-filter:blur(18px) saturate(135%);
+  box-shadow:0 18px 46px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.07);overflow:hidden;isolation:isolate}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;opacity:0;transition:opacity .5s ease;pointer-events:none;
+  background:conic-gradient(from var(--spin,0deg),transparent 0%,rgba(241,211,122,.85) 12%,transparent 30%,transparent 62%,rgba(212,175,55,.6) 76%,transparent 92%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  animation:spinBorder 6s linear infinite}
+@keyframes spinBorder{to{--spin:360deg}}
+@property --spin{syntax:'<angle>';inherits:false;initial-value:0deg}
+.glass:hover::before{opacity:1}
+.spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .45s ease;z-index:0;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(212,175,55,.13),transparent 62%)}
+.spot:hover::after{opacity:1}
+.glass>*{position:relative;z-index:1}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-l{opacity:0;transform:translateX(-40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-l.in{opacity:1;transform:none}
+.rv-r{opacity:0;transform:translateX(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-r.in{opacity:1;transform:none}
+.rv-s{opacity:0;transform:scale(.94);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-s.in{opacity:1;transform:none}
+
+/* =========================================================
+   6. HERO
+========================================================= */
+.hero{position:relative;overflow:hidden;padding:0 0 64px;margin-top:-132px;padding-top:132px}
+.hero-bg{position:absolute;inset:-8% 0 0;background:url('aboutuss.png') 58% 38%/cover no-repeat;
+  filter:saturate(1.08) contrast(1.04) brightness(.72);will-change:transform;transform:scale(1.12) translate(4%, 6%)}
+.hero-veil{position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(6,9,18,.88) 0%,rgba(6,9,18,.72) 28%,rgba(6,9,18,.32) 52%,rgba(6,9,18,.10) 72%,transparent 100%),
+  linear-gradient(180deg,rgba(6,9,18,.35) 0%,transparent 28%,transparent 62%,rgba(6,9,18,.55) 100%),
+  radial-gradient(700px 480px at 22% 48%,rgba(6,9,18,.55),transparent 70%)}
+
+.hero-inner{position:relative;z-index:5;max-width:1220px;margin:0 auto;padding:86px 40px 26px}
+.hero-title{font-family:'Cinzel','Playfair Display',serif;font-weight:700;line-height:1.1;font-size:clamp(40px,5.9vw,74px);margin:20px 0 22px;letter-spacing:.5px}
+.hero-title .l1{display:block;color:#FBF3DE;text-shadow:0 6px 26px rgba(0,0,0,.7)}
+.hero-title .l2{display:block;background:linear-gradient(100deg,#FFFDF4 0%,#F1D37A 30%,#FFF9E3 48%,#C9A227 68%,#FFFDF4 100%);
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 6px 20px rgba(0,0,0,.55));animation:sheen 6s linear infinite}
+.hero-desc{max-width:600px;font-size:16px;line-height:1.9;color:rgba(238,228,210,.80);font-weight:300}
+.hero-cta{display:flex;align-items:center;gap:16px;margin-top:32px;flex-wrap:wrap}
+.btn-gold{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:11px;height:49px;padding:0 27px;border-radius:28px;
+  background:linear-gradient(135deg,#F7E08F,#DDAF52 55%,#C9A227);color:#12100A;font-size:10.4px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;
+  border:1px solid rgba(255,240,180,.4);box-shadow:0 8px 28px rgba(200,150,40,.30);transition:transform .35s var(--ease),box-shadow .35s ease}
+.btn-gold::after{content:"";position:absolute;top:0;left:0;width:40%;height:100%;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.6) 50%,transparent 70%);transform:translateX(-140%);animation:btnShine 5.2s 2s ease-in-out infinite}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(200,150,40,.45)}
+.btn-gold .arrow{width:23px;height:23px;border-radius:50%;background:rgba(14,20,38,.16);display:grid;place-items:center}
+.btn-gold .arrow svg{width:12px;height:12px;stroke:#12100A;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;height:49px;padding:0 25px;border-radius:28px;border:1px solid rgba(212,175,55,.42);
+  color:var(--cream);font-size:10.4px;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,.04);
+  backdrop-filter:blur(10px);transition:var(--tr)}
+.btn-ghost:hover{background:rgba(212,175,55,.14);border-color:rgba(241,211,122,.7);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.btn-ghost svg{width:14px;height:14px;stroke:var(--gold-light);fill:none;stroke-width:1.6}
+
+.scroll-cue{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:14px;color:var(--ink-dim);font-size:8.5px;letter-spacing:2.7px;text-transform:uppercase}
+.scroll-cue i{display:block;width:1px;height:46px;background:linear-gradient(180deg,rgba(212,175,55,.9),transparent);position:relative;overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;top:-46px;left:0;width:1px;height:46px;background:linear-gradient(180deg,transparent,#FFD700);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%{transform:translateY(0)}100%{transform:translateY(92px)}}
+
+/* stat strip */
+.stat-strip{position:relative;z-index:6;max-width:1140px;margin:-46px auto 0;padding:0 40px}
+.stat-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:30px 20px;border-radius:24px}
+.stat{text-align:center;position:relative;padding:6px 14px}
+.stat:not(:last-child)::after{content:"";position:absolute;right:0;top:16%;bottom:16%;width:1px;background:linear-gradient(180deg,transparent,rgba(212,175,55,.28),transparent)}
+.stat .num{font-family:'Cinzel',serif;font-size:clamp(25px,2.9vw,36px);font-weight:700;
+  background:linear-gradient(180deg,#FFFDF4,#F1D37A 55%,#C9A227);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat .lbl{margin-top:6px;font-size:10.2px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-dim);font-weight:500}
+
+/* =========================================================
+   7. STORY
+========================================================= */
+.story-grid{display:grid;grid-template-columns:.92fr 1.5fr;gap:30px;align-items:stretch}
+.story-card{padding:41px 38px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.story-orb{position:relative;width:142px;height:142px;margin:-4px 0 6px -8px}
+.story-orb::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px dashed rgba(212,175,55,.3);animation:plSpin 26s linear infinite}
+.story-orb::after{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.22),transparent 70%);filter:blur(14px);animation:plPulse 5s ease-in-out infinite}
+.story-orb img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 26px rgba(212,175,55,.35));animation:logoFloat 6s ease-in-out infinite}
+.story-card h3,.mv-block>h2{font-family:'Cinzel','Playfair Display',serif;font-weight:600;font-size:23px;letter-spacing:.6px;color:var(--gold)}
+.story-card p{font-size:14px;line-height:1.9;color:var(--ink-soft);font-weight:300}
+.story-card p em{font-style:normal;color:var(--gold-light);font-weight:500}
+.story-sign{margin-top:8px;display:flex;align-items:center;gap:12px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(241,211,122,.8)}
+.story-sign i{width:34px;height:1px;background:linear-gradient(90deg,rgba(212,175,55,.8),transparent);display:block}
+
+.mv-block{padding:34px 32px}
+.mv-block>h2{text-align:left;display:block;margin-bottom:22px;font-size:clamp(20px,2.1vw,24px)}
+.mv-grid{display:flex;flex-direction:column;gap:0;position:relative}
+.mv-grid::before{content:"";position:absolute;left:29px;top:28px;bottom:28px;width:1px;
+  background:linear-gradient(180deg,rgba(212,175,55,.55),rgba(212,175,55,.18) 50%,rgba(212,175,55,.45))}
+.mv-item{position:relative;text-align:left;display:grid;grid-template-columns:58px 1fr;gap:4px 16px;align-items:start;
+  padding:18px 8px 18px 0;border:none;border-radius:0;background:transparent;transform:none}
+.mv-item + .mv-item{border-top:1px solid rgba(212,175,55,.10)}
+.mv-item:hover{border-color:transparent;background:transparent;transform:none}
+.mv-item:hover .mv-icon{transform:scale(1.06)}
+.mv-item:hover .mv-icon::before{transform:rotate(180deg)}
+.mv-icon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;position:relative;z-index:1;grid-row:1 / span 2;
+  background:radial-gradient(circle,rgba(12,18,32,.92) 42%,rgba(212,175,55,.14) 100%);
+  border:1px solid rgba(212,175,55,.28);transition:transform .55s var(--ease)}
+.mv-icon::before{content:"";position:absolute;inset:0;border-radius:50%;padding:1px;
+  background:linear-gradient(135deg,rgba(241,211,122,.7),rgba(212,175,55,.08) 50%,rgba(212,175,55,.5));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:transform .7s var(--ease)}
+.mv-icon svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.mv-item h4{font-family:'Poppins',sans-serif;font-weight:600;font-size:13.2px;letter-spacing:1.4px;color:var(--cream);text-transform:uppercase;
+  margin:0;padding-top:8px}
+.mv-item p{font-size:13.2px;line-height:1.75;color:var(--ink-dim);font-weight:300;margin:0;max-width:none}
+
+/* =========================================================
+   8. QUOTE
+========================================================= */
+.quote-banner{display:flex;align-items:center;justify-content:center;gap:27px;text-align:center;padding:40px 50px;flex-wrap:wrap;
+  background:linear-gradient(140deg,rgba(212,175,55,.09),rgba(255,255,255,.02) 45%,rgba(126,86,204,.06))}
+.qb-icon{flex-shrink:0;width:29px;height:29px;opacity:.9;animation:plPulse 4s ease-in-out infinite}
+.qb-icon svg{width:100%;height:100%;stroke:var(--gold);fill:none;stroke-width:1.3}
+.quote-banner p{font-family:'Noto Sans Devanagari',serif;font-size:clamp(14.5px,1.55vw,18.5px);font-weight:600;line-height:1.9;color:#F3E1AC;max-width:900px;text-shadow:0 2px 18px rgba(212,175,55,.18)}
+.quote-attr{width:100%;font-size:10.2px;letter-spacing:2.7px;text-transform:uppercase;color:var(--ink-dim);font-family:'Poppins',sans-serif;font-weight:500}
+
+/* =========================================================
+   9. JOURNEY TIMELINE
+========================================================= */
+.timeline{position:relative;padding-left:0}
+.timeline::before{content:"";position:absolute;left:50%;top:8px;bottom:8px;width:1px;transform:translateX(-50%);
+  background:linear-gradient(180deg,transparent,rgba(212,175,55,.45) 12%,rgba(212,175,55,.45) 88%,transparent)}
+.tl-item{position:relative;width:50%;padding:0 46px 28px;}
+.tl-item:nth-child(odd){left:0;text-align:right}
+.tl-item:nth-child(even){left:50%;text-align:left}
+.tl-dot{position:absolute;top:6px;width:15px;height:15px;border-radius:50%;background:#0A0F1C;border:1px solid rgba(212,175,55,.8);display:grid;place-items:center}
+.tl-dot::after{content:"";width:6px;height:6px;border-radius:50%;background:#FFD700;box-shadow:0 0 12px 3px rgba(255,215,0,.6);animation:plPulse 2.6s ease-in-out infinite}
+.tl-item:nth-child(odd) .tl-dot{right:-7.5px}
+.tl-item:nth-child(even) .tl-dot{left:-7.5px}
+.tl-year{font-family:'Cinzel',serif;font-size:12.5px;letter-spacing:2.7px;color:var(--gold);margin-bottom:7px}
+.tl-card{padding:20px 22px;border-radius:var(--r-md)}
+.tl-card h4{font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;letter-spacing:.5px;color:var(--cream);margin-bottom:6px}
+.tl-card p{font-size:12.8px;line-height:1.75;color:var(--ink-dim);font-weight:300}
+
+/* =========================================================
+   10. VALUES / WHY
+========================================================= */
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.tile{position:relative;padding:29px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;border-radius:var(--r-md);
+  transition:transform .5s var(--ease),box-shadow .5s ease,border-color .4s ease}
+.tile:hover{transform:translateY(-10px);box-shadow:0 26px 60px rgba(0,0,0,.45)}
+.vw-icon{width:59px;height:59px;border-radius:50%;display:grid;place-items:center;position:relative;
+  background:radial-gradient(circle,rgba(212,175,55,.12) 0%,transparent 72%);transition:transform .5s var(--ease)}
+.vw-icon::before{content:"";position:absolute;inset:0;border-radius:50%;padding:1px;
+  background:linear-gradient(135deg,rgba(241,211,122,.6),rgba(212,175,55,.06) 45%,rgba(212,175,55,.45));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:.6;transition:opacity .4s ease,transform .8s var(--ease)}
+.vw-icon::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(212,175,55,.22);opacity:0;transition:opacity .4s ease}
+.tile:hover .vw-icon{transform:translateY(-5px) scale(1.07)}
+.tile:hover .vw-icon::before{opacity:1;transform:rotate(180deg)}
+.tile:hover .vw-icon::after{opacity:1;animation:plSpin 12s linear infinite}
+.vw-icon svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.tile h4{font-family:'Poppins',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--cream)}
+.tile p{font-size:12.2px;line-height:1.75;color:var(--ink-dim);font-weight:300}
+.tile .idx{position:absolute;top:12px;right:16px;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:1px;color:rgba(212,175,55,.35)}
+
+/* =========================================================
+   11. CTA
+========================================================= */
+.cta-wrap{position:relative;overflow:hidden;padding:47px 49px;display:flex;align-items:center;gap:31px;flex-wrap:wrap;
+  background:linear-gradient(120deg,rgba(212,175,55,.12),rgba(255,255,255,.02) 40%,rgba(126,86,204,.10))}
+.cta-wrap::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-120px;top:-160px;
+  background:radial-gradient(circle,rgba(212,175,55,.22),transparent 68%);filter:blur(40px);animation:plPulse 7s ease-in-out infinite}
+.cta-figure{flex-shrink:0;width:200px;height:200px;border-radius:50%;display:grid;place-items:center;position:relative;
+  background:radial-gradient(circle,rgba(212,175,55,.12) 0%,transparent 72%);border:none}
+.cta-figure::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(212,175,55,.28);animation:plSpin 18s linear infinite;pointer-events:none}
+.cta-figure img{width:100%;height:100%;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 6px 18px rgba(212,175,55,.4))}
+.cta-text{flex:1;min-width:280px}
+.cta-text .l1{font-family:'Cinzel','Playfair Display',serif;font-size:clamp(18px,2.1vw,25px);font-weight:600;color:var(--cream);line-height:1.4}
+.cta-text .l2{font-family:'Cinzel','Playfair Display',serif;font-size:clamp(18px,2.1vw,25px);font-weight:600;line-height:1.4;
+  background:linear-gradient(100deg,#FFFDF4,#F1D37A 40%,#FFF8DC 55%,#C9A227 75%,#FFFDF4);background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 7s linear infinite}
+.cta-text .l3{margin-top:11px;font-size:13.2px;color:var(--ink-dim);font-weight:300}
+
+/* =========================================================
+   12. FOOTER
+========================================================= */
+.site-footer{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(5,8,16,.6) 0%,#04060D 100%);border-top:1px solid rgba(212,175,55,.16);padding:76px 40px 0;margin-top:20px}
+.footer-lotus{position:absolute;right:-30px;bottom:10px;width:340px;height:340px;opacity:.06;pointer-events:none;animation:logoFloat 9s ease-in-out infinite}
+.footer-grid{position:relative;z-index:1;max-width:1220px;margin:0 auto;display:grid;grid-template-columns:1.35fr 1fr 1fr 1.15fr;gap:44px;padding-bottom:48px}
+.footer-brand .f-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-brand .f-logo img{width:43px;height:43px}
+.footer-brand .f-logo .logo-text{font-size:20px}
+.footer-brand .f-logo .logo-subtitle{font-size:7.2px}
+.footer-brand p{font-size:11.7px;line-height:1.8;color:var(--ink-dim);font-weight:300;max-width:310px;margin-bottom:18px}
+.footer-social{display:flex;gap:10px}
+.footer-col h5{font-family:'Cinzel','Playfair Display',serif;font-size:13.5px;font-weight:600;letter-spacing:.7px;color:var(--gold);margin-bottom:18px;position:relative;padding-bottom:11px}
+.footer-col h5::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{font-size:11.7px;color:rgba(238,228,210,.62);font-weight:300;display:inline-flex;align-items:center;gap:7px;transition:color .25s ease,gap .25s ease,transform .25s ease}
+.footer-col ul li a:hover{color:var(--gold-light);gap:10px;transform:translateX(2px)}
+.footer-col ul li a::before{content:'\276F';font-size:8px;color:var(--gold);opacity:.7}
+.footer-contact li{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;font-size:11.7px;color:rgba(238,228,210,.62);font-weight:300;line-height:1.6}
+.footer-contact li svg{flex-shrink:0;width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.6;margin-top:2px}
+.footer-bottom{position:relative;z-index:1;max-width:1220px;margin:0 auto;border-top:1px solid rgba(212,175,55,.14);padding:22px 0 25px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:10.8px;color:rgba(238,228,210,.42);font-weight:300}
+.footer-bottom .heart{color:#D4536B;animation:plPulse 1.9s ease-in-out infinite;display:inline-block}
+
+/* =========================================================
+   13. RESPONSIVE
+========================================================= */
+@media (max-width:1200px){
+  .nav-menu{gap:20px}.nav-menu a{font-size:11px}
+  .logo-symbol{width:66px;height:66px}.logo-text{font-size:26.6px}
+  .logo-subtitle{font-size:8.5px;letter-spacing:1.3px}.logo-area{min-width:220px;height:132px}
+  .contact-item{font-size:11px}.contact-bar{padding-left:380px}.contact-bottom-fade{left:380px;width:210px}
+  .why-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:992px){
+  .story-grid{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-inner{grid-template-columns:repeat(2,1fr);gap:22px 0}
+  .stat:nth-child(2)::after{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .navbar{width:100%;height:111px;margin:8px auto 0;overflow:visible}
+  .nav-wrap{padding:0 12px}
+  .nav-main{height:68px;padding:0 18px}
+  .nav-menu{display:none}
+  .logo-area{height:111px}.logo-symbol{width:60px;height:60px}
+  .logo-text{font-size:24.2px}.logo-subtitle{font-size:7.9px;letter-spacing:1.2px}
+  .join-btn{height:40px;padding:0 18px;font-size:9.5px}
+  .contact-bar{gap:9px;padding:0 16px 0 320px}.contact-bottom-fade{left:320px;width:190px}
+  .contact-info{gap:12px}.contact-item{font-size:9.5px}.contact-icon svg{width:13px;height:13px}
+  .social{width:24px;height:24px}
+  .hero{margin-top:-111px;padding-top:111px}
+  .section{padding:48px 28px}
+  .cta-wrap{justify-content:center;text-align:center;padding:40px 28px}
+  .cta-text{text-align:center}
+  .timeline::before{left:8px}
+  .tl-item{width:100%;left:0!important;text-align:left!important;padding:0 0 24px 38px}
+  .tl-item .tl-dot{left:1px!important;right:auto!important}
+}
+@media (max-width:640px){
+  .navbar{height:102px;margin:6px auto 0}
+  .nav-wrap{padding:0 8px}
+  .nav-main{height:58px;padding:0 14px}
+  .logo-area{min-width:0;gap:10px;flex-shrink:1;overflow:hidden;height:102px}
+  .logo-symbol{width:48px;height:48px}
+  .logo-text{font-size:21.8px;letter-spacing:.4px;white-space:nowrap}
+  .logo-subtitle{font-size:7.9px;letter-spacing:.8px;overflow:hidden;text-overflow:ellipsis;max-width:194px}
+  .hamburger{margin-left:6px}
+  .contact-bar{justify-content:flex-end;gap:10px;padding:0 12px;overflow:visible;width:100%}
+  .contact-bottom-fade{display:none}
+  .contact-info{justify-content:flex-end;gap:8px;flex:unset}
+  .contact-info .separator,.contact-info .contact-item:nth-child(3),.contact-info .contact-item:nth-child(5){display:none}
+  .contact-item{font-size:10px;letter-spacing:0;gap:4px;flex-shrink:0}
+  .social{width:22px;height:22px;flex-shrink:0}
+  .mobile-panel{top:62px;box-shadow:0 18px 30px rgba(0,0,0,.45)}
+  .hero{margin-top:-102px;padding-top:102px}
+  .hero-inner{padding:56px 22px 20px}
+  .section{padding:36px 20px}
+  .stat-strip{padding:0 20px;margin-top:-30px}
+  .stat-inner{padding:24px 12px}
+  .story-card{padding:32px 24px}
+  .mv-block{padding:26px 18px}
+  .mv-item{grid-template-columns:50px 1fr;gap:2px 12px;padding:14px 4px 14px 0}
+  .mv-icon{width:50px;height:50px}
+  .mv-icon svg{width:21px;height:21px}
+  .mv-grid::before{left:24px}
+  .value-grid,.why-grid{grid-template-columns:1fr}
+  .quote-banner{padding:30px 24px;gap:16px}
+  .footer-grid{grid-template-columns:1fr;gap:34px;padding-bottom:30px}
+  .site-footer{padding:52px 20px 0}
+  #toTop{right:16px;bottom:16px;width:42px;height:42px}
+}
+@media (max-width:480px){
+  .join-btn{display:none}
+  .mobile-panel .join-btn-mobile{display:inline-flex}
+  .hero-cta{gap:12px}
+  .btn-gold,.btn-ghost{height:43px;padding:0 20px;font-size:9.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.rv-l,.rv-r,.rv-s{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="pl-mandala">
+    <span></span><span></span><span></span>
+    <img src="RS logo nav bar.png" alt="ReikiSutra" />
+  </div>
+  <div class="pl-text">ReikiSutra</div>
+</div>
+
+<!-- AMBIENT -->
+<div class="bg-stage" aria-hidden="true"></div>
+<div class="bg-orb orb-a" aria-hidden="true"></div>
+<div class="bg-orb orb-b" aria-hidden="true"></div>
+<div class="bg-orb orb-c" aria-hidden="true"></div>
+<canvas id="dust" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div id="progress"></div>
+
+<div class="nav-wrap" id="navWrap">
+  <header class="navbar" id="navbar">
+    <div class="nav-main">
+      <div class="logo-area">
+        <div class="logo-symbol"><img src="RS logo nav bar.png" alt="ReikiSutra Logo" class="logo-symbol-img"></div>
+        <div>
+          <div class="logo-text"><span class="logo-reiki">Reiki</span><span class="logo-sutra">Sutra</span></div>
+          <div class="logo-subtitle">Natural Pathway to Inner Peace</div>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html">HOME</a>
+        <a href="about.html" class="active">ABOUT</a>
+        <a href="#">COURSES</a>
+        <a href="#">RESOURCES</a>
+        <a href="#">BLOG</a>
+        <a href="#">CONTACT</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#" class="join-btn">JOIN NOW</a>
+        <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+
+    <div class="mobile-panel" id="mobile-menu">
+      <a href="index.html">HOME</a>
+      <a href="about.html" class="active">ABOUT</a>
+      <a href="#">COURSES</a>
+      <a href="#">RESOURCES</a>
+      <a href="#">BLOG</a>
+      <a href="#">CONTACT</a>
+      <a href="#" class="join-btn join-btn-mobile">JOIN NOW</a>
+    </div>
+
+    <svg class="contact-curve-stroke" viewBox="0 0 1000 46" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="curveGold" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E1AA46" stop-opacity="0"/><stop offset="18%" stop-color="#E1AA46" stop-opacity="0.25"/>
+          <stop offset="24%" stop-color="#FFF0B0" stop-opacity="1"/><stop offset="28%" stop-color="#FFD54A" stop-opacity="1"/>
+          <stop offset="36%" stop-color="#E1AA46" stop-opacity="0.55"/><stop offset="58%" stop-color="#E1AA46" stop-opacity="0.35"/>
+          <stop offset="72%" stop-color="#FFE082" stop-opacity="0.85"/><stop offset="88%" stop-color="#D99432" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#D99432" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="curveHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FFF8DC" stop-opacity="0"/><stop offset="24%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+          <stop offset="32%" stop-color="#FFF8DC" stop-opacity="0.20"/><stop offset="70%" stop-color="#FFF8DC" stop-opacity="0.15"/>
+          <stop offset="74%" stop-color="#FFFFFF" stop-opacity="0.70"/><stop offset="100%" stop-color="#FFF8DC" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="curveGlow" x="-10%" y="-100%" width="120%" height="300%">
+          <feGaussianBlur stdDeviation="3.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <path d="M 0 46 L 230 46 C 252 46, 262 0, 308 0 L 1000 0" fill="none" stroke="url(#curveGold)" stroke-width="5" filter="url(#curveGlow)" opacity="0.40"/>
+      <path d="M 0 46 L 230 46 C 252 46, 262 0, 308 0 L 1000 0" fill="none" stroke="url(#curveGold)" stroke-width="1.4" opacity="0.95"/>
+      <path d="M 0 46 L 230 46 C 252 46, 262 0, 308 0 L 1000 0" fill="none" stroke="url(#curveHighlight)" stroke-width="0.6" opacity="0.85"/>
+    </svg>
+
+    <div class="contact-bar">
+      <span class="contact-bottom-fade" aria-hidden="true"></span>
+      <div class="contact-info">
+        <div class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.54.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.54 1 1 0 01-.26 1.09z"/></svg></span><span>+91 12345 67890</span></div>
+        <div class="separator"></div>
+        <div class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span>info@reikisutra.com</span></div>
+        <div class="separator"></div>
+        <div class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span><span>www.reikisutra.com</span></div>
+      </div>
+      <div class="socials">
+        <a href="#" class="social" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" class="social" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="social" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="#" class="social" aria-label="My account"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <span class="eyebrow rv">
+      <svg viewBox="0 0 24 24"><path d="M12 3c1.5 3 1.5 6 0 9-1.5-3-1.5-6 0-9zM4 12c3-1.5 6-1.5 9 0-3 1.5-6 1.5-9 0zM20 12c-3-1.5-6-1.5-9 0 3 1.5 6 1.5 9 0zM12 12c1.5 3 1.5 6 0 9-1.5-3-1.5-6 0-9z"/></svg>
+      About Us
+    </span>
+    <h1 class="hero-title">
+      <span class="l1 rv">Our Journey,</span>
+      <span class="l2 rv">Our Purpose</span>
+    </h1>
+    <p class="hero-desc rv">ReikiSutra is a pathway to understand the science of energy, the power of consciousness and the art of living in harmony. We believe every being carries the potential to awaken, heal and transform.</p>
+    <div class="hero-cta rv">
+      <a href="#story" class="btn-gold">Discover Our Story <span class="arrow"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span></a>
+      <a href="#" class="btn-ghost"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg> Watch Film</a>
+    </div>
+    <div class="scroll-cue rv"><i></i>Scroll</div>
+  </div>
+</section>
+
+<!-- ============ STAT STRIP ============ -->
+<div class="stat-strip rv-s">
+  <div class="glass spot stat-inner">
+    <div class="stat"><div class="num" data-count="25000" data-suffix="+">0</div><div class="lbl">Lives Touched</div></div>
+    <div class="stat"><div class="num" data-count="32" data-suffix="+">0</div><div class="lbl">Countries Reached</div></div>
+    <div class="stat"><div class="num" data-count="18" data-suffix="+">0</div><div class="lbl">Years of Practice</div></div>
+    <div class="stat"><div class="num" data-count="49" data-decimal="1" data-suffix="/5">0</div><div class="lbl">Learner Rating</div></div>
+  </div>
+</div>
+
+<!-- ============ STORY + MISSION ============ -->
+<section class="section" id="story">
+  <div class="story-grid">
+    <div class="glass spot story-card rv-l">
+      <div class="story-orb" aria-hidden="true"><img src="aboo.png" alt=""></div>
+      <h3>Our Story</h3>
+      <p>ReikiSutra was born from a deep inner search — to find a universal language that connects ancient wisdom with modern science. Our journey began with a single question: <em>What is the true nature of energy, and how can it transform lives?</em></p>
+      <p>Today, ReikiSutra stands as a global platform devoted to spreading awareness, knowledge and practical tools for collective transformation.</p>
+      <div class="story-sign"><i></i>Rooted in tradition. Guided by science.</div>
+    </div>
+
+    <div class="glass spot mv-block rv-r">
+      <h2>Our Mission, Vision &amp; Approach</h2>
+      <div class="mv-grid">
+        <div class="mv-item">
+          <div class="mv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="#D4AF37" stroke="none"/></svg></div>
+          <h4>Our Mission</h4>
+          <p>To make the science of energy and consciousness accessible to all, and empower individuals to live a balanced, meaningful and awakened life.</p>
+        </div>
+        <div class="mv-item">
+          <div class="mv-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h4>Our Vision</h4>
+          <p>A world where every individual lives in harmony within, contributes to the well-being of all, and creates a conscious, peaceful civilization.</p>
+        </div>
+        <div class="mv-item">
+          <div class="mv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.3"/><circle cx="5" cy="19" r="2.3"/><circle cx="19" cy="19" r="2.3"/><path d="M10.3 6.8L6.7 17.2M13.7 6.8l3.6 10.4M7.3 19h9.4"/></svg></div>
+          <h4>Our Approach</h4>
+          <p>We blend ancient wisdom with modern science — offering practical tools, structured learning and real-life transformation for everyone.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="section section-tight">
+  <div class="glass quote-banner rv-s">
+    <span class="qb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2c1.8 3.6 1.8 7.2 0 10.8-1.8-3.6-1.8-7.2 0-10.8zM2.6 12c3.6-1.8 7.2-1.8 10.8 0-3.6 1.8-7.2 1.8-10.8 0zM21.4 12c-3.6-1.8-7.2-1.8-10.8 0 3.6 1.8 7.2 1.8 10.8 0zM12 12.2c1.8 3.6 1.8 7.2 0 10.8-1.8-3.6-1.8-7.2 0-10.8z"/></svg></span>
+    <p>&ldquo;गति जब स्वयं में ठहर जाए, तो वह स्थिरता है। यात्रा जब आरंभ और अंत से मुक्त हो जाए, तो वह ब्रह्मांड की अनंत समृद्धि है।&rdquo;</p>
+    <span class="qb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2c1.8 3.6 1.8 7.2 0 10.8-1.8-3.6-1.8-7.2 0-10.8zM2.6 12c3.6-1.8 7.2-1.8 10.8 0-3.6 1.8-7.2 1.8-10.8 0zM21.4 12c-3.6-1.8-7.2-1.8-10.8 0 3.6 1.8 7.2 1.8 10.8 0zM12 12.2c1.8 3.6 1.8 7.2 0 10.8-1.8-3.6-1.8-7.2 0-10.8z"/></svg></span>
+    <span class="quote-attr">— The ReikiSutra Philosophy</span>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="section">
+  <div class="sec-head">
+    <span class="eyebrow rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>The Path So Far</span>
+    <h2 class="sec-heading rv">Milestones of Our Journey</h2>
+    <div class="divider rv"><i></i><b></b><i></i></div>
+    <p class="sec-sub rv">Every step has been guided by one intention — to make inner transformation simple, practical and universally accessible.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item rv-l">
+      <span class="tl-dot"></span>
+      <div class="tl-year">THE BEGINNING</div>
+      <div class="glass spot tl-card"><h4>A Question Becomes a Quest</h4><p>Years of study across healing traditions, meditation lineages and energy sciences shaped the foundation of what ReikiSutra would become.</p></div>
+    </div>
+    <div class="tl-item rv-r">
+      <span class="tl-dot"></span>
+      <div class="tl-year">FIRST CIRCLE</div>
+      <div class="glass spot tl-card"><h4>The First Learners</h4><p>A small group of seekers gathered for our first sessions — proving that structured, science-aligned energy practice creates measurable change.</p></div>
+    </div>
+    <div class="tl-item rv-l">
+      <span class="tl-dot"></span>
+      <div class="tl-year">EXPANSION</div>
+      <div class="glass spot tl-card"><h4>Structured Curriculum</h4><p>Teachings were refined into progressive levels, blending Reiki, breath, meditation and consciousness studies into one coherent pathway.</p></div>
+    </div>
+    <div class="tl-item rv-r">
+      <span class="tl-dot"></span>
+      <div class="tl-year">TODAY</div>
+      <div class="glass spot tl-card"><h4>A Global Family</h4><p>ReikiSutra now reaches seekers across continents — a growing community practising, sharing and awakening together.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CORE VALUES ============ -->
+<section class="section section-tight">
+  <div class="sec-head">
+    <span class="eyebrow rv"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 15.8 6.999 18.5l1.2-5.6L4 9l5.6-.6z"/></svg>What We Stand For</span>
+    <h2 class="sec-heading rv">Our Core Values</h2>
+    <div class="divider rv"><i></i><b></b><i></i></div>
+  </div>
+
+  <div class="value-grid">
+    <div class="glass spot tile rv"><span class="idx">01</span>
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><path d="M4 20c0-9 7-16 16-16-1 9-7 16-16 16z"/><path d="M4.5 19.5C9 15 14 10 19.5 4.5"/></svg></div>
+      <h4>Truth</h4><p>We value truth in thought, word and action — the ground on which all real growth stands.</p></div>
+    <div class="glass spot tile rv"><span class="idx">02</span>
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h4>Awareness</h4><p>We cultivate awareness as the master key to every inner transformation.</p></div>
+    <div class="glass spot tile rv"><span class="idx">03</span>
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-9C.9 8 2.3 4 6.2 4c2 0 4 1.4 5.8 3.8C13.8 5.4 15.8 4 17.8 4c3.9 0 5.3 4 3.7 8-2.5 4.65-9.5 9-9.5 9z"/></svg></div>
+      <h4>Compassion</h4><p>We act with kindness and understanding towards all beings, without exception.</p></div>
+    <div class="glass spot tile rv"><span class="idx">04</span>
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><path d="M6.5 12c0-2 1.5-3.5 3.2-3.5 2.3 0 3.5 3.5 5.6 3.5s3.2-1.5 3.2-3.5-1.5-3.5-3.2-3.5c-2.3 0-3.5 3.5-5.6 3.5S6.5 10 6.5 8s1.5-3.5 3.2-3.5"/><path d="M6.5 12c0 2 1.5 3.5 3.2 3.5 2.3 0 3.5-3.5 5.6-3.5s3.2 1.5 3.2 3.5-1.5 3.5-3.2 3.5c-2.3 0-3.5-3.5-5.6-3.5S6.5 14 6.5 16"/></svg></div>
+      <h4>Transformation</h4><p>We believe in continuous growth and the innate power to transform from within.</p></div>
+    <div class="glass spot tile rv"><span class="idx">05</span>
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 7.5l1.4 2.9 3.2.5-2.3 2.2.5 3.2-2.8-1.5-2.8 1.5.5-3.2-2.3-2.2 3.2-.5z" fill="#D4AF37" stroke="none"/></svg></div>
+      <h4>Integrity</h4><p>We maintain honesty, responsibility and inner alignment in everything we teach.</p></div>
+    <div class="glass spot tile rv"><span class="idx">06</span>
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <h4>Community</h4><p>We grow together as a global family of conscious, supportive beings.</p></div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="section section-tight">
+  <div class="sec-head">
+    <span class="eyebrow rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>The Difference</span>
+    <h2 class="sec-heading rv">Why ReikiSutra?</h2>
+    <div class="divider rv"><i></i><b></b><i></i></div>
+  </div>
+
+  <div class="why-grid">
+    <div class="glass spot tile rv">
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.4" fill="#D4AF37" stroke="none"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(120 12 12)"/></svg></div>
+      <h4>Science + Spirituality</h4><p>Bridging ancient wisdom with modern scientific understanding.</p></div>
+    <div class="glass spot tile rv">
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+      <h4>Universal Approach</h4><p>Open to all individuals, beyond beliefs and boundaries.</p></div>
+    <div class="glass spot tile rv">
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><path d="M2 5c3-2 7-2 10 0 3-2 7-2 10 0v14c-3-2-7-2-10 0-3-2-7-2-10 0V5z"/><path d="M12 5v14"/></svg></div>
+      <h4>Practical Learning</h4><p>Tools, techniques and practices built for real-life transformation.</p></div>
+    <div class="glass spot tile rv">
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><path d="M12 3c1.6 2.9 1.6 5.8 0 8.7-1.6-2.9-1.6-5.8 0-8.7zM3.6 8c3.2.5 5.5 2.3 6.9 5.4-3.2-.5-5.5-2.3-6.9-5.4zM20.4 8c-3.2.5-5.5 2.3-6.9 5.4 3.2-.5 5.5-2.3 6.9-5.4zM3.6 16c3.2-.5 5.5-2.3 6.9-5.4-3.2.5-5.5 2.3-6.9 5.4zM20.4 16c-3.2-.5-5.5-2.3-6.9-5.4 3.2.5 5.5 2.3 6.9 5.4zM12 13.3c1.6 2.9 1.6 5.8 0 8.7-1.6-2.9-1.6-5.8 0-8.7z"/></svg></div>
+      <h4>Holistic Growth</h4><p>Mind, body, energy and consciousness in harmonious balance.</p></div>
+    <div class="glass spot tile rv">
+      <div class="vw-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <h4>Global Community</h4><p>Connecting hearts and creating positive impact worldwide.</p></div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section section-tight">
+  <div class="glass spot cta-wrap rv-s">
+    <div class="cta-figure" aria-hidden="true">
+      <img src="kas.png" alt="" />
+    </div>
+    <div class="cta-text">
+      <div class="l1">We are not here to teach.</div>
+      <div class="l2">We are here to remind you of who you truly are.</div>
+      <div class="l3">Join us on this timeless journey within.</div>
+    </div>
+    <a href="#" class="btn-gold">Join Our Journey <span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <svg class="footer-lotus" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <g stroke="#D4AF37" stroke-width="1.2">
+      <path d="M100 190c0-60 0-100 0-160"/><path d="M100 60c-30 20-40 60-30 100 25-15 35-55 30-100z"/>
+      <path d="M100 60c30 20 40 60 30 100-25-15-35-55-30-100z"/><path d="M100 90c-45 5-70 35-70 75 40-5 65-35 70-75z"/>
+      <path d="M100 90c45 5 70 35 70 75-40-5-65-35-70-75z"/>
+    </g>
+  </svg>
+  <div class="footer-grid">
+    <div class="footer-brand rv">
+      <div class="f-logo">
+        <img src="RS logo nav bar.png" alt="ReikiSutra Logo">
+        <div>
+          <div class="logo-text"><span class="logo-reiki">Reiki</span><span class="logo-sutra">Sutra</span></div>
+          <div class="logo-subtitle">Natural Pathway to Inner Peace</div>
+        </div>
+      </div>
+      <p>A universal pathway to understand energy, awaken consciousness and live a blissful life.</p>
+      <div class="footer-social">
+        <a href="#" class="social" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" class="social" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="social" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="#" class="social" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></a>
+        <a href="#" class="social" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col rv">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+        <li><a href="#">Courses</a></li><li><a href="#">Research</a></li>
+        <li><a href="#">Blog</a></li><li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col rv">
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="#">Wisdom Library</a></li><li><a href="#">Meditation Guide</a></li>
+        <li><a href="#">Healing Tools</a></li><li><a href="#">Free Resources</a></li>
+        <li><a href="#">FAQ</a></li><li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col rv">
+      <h5>Contact Us</h5>
+      <ul class="footer-contact">
+        <li><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.54.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.54 1 1 0 01-.26 1.09z"/></svg><span>+91 12345 67890</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@reikisutra.com</span></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg><span>www.reikisutra.com</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>ReikiSutra Retreat Center, Rishikesh, Uttarakhand, India</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 ReikiSutra. All Rights Reserved.</span>
+    <span>Designed with <span class="heart">&hearts;</span> for Conscious Living</span>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script>
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- preloader ---------- */
+  window.addEventListener('load', ()=>{
+    setTimeout(()=>document.getElementById('preloader').classList.add('done'), 500);
+  });
+  setTimeout(()=>document.getElementById('preloader').classList.add('done'), 3200);
+
+  /* ---------- nav ---------- */
+  const hamburger = document.getElementById('hamburger');
+  const navbar = document.getElementById('navbar');
+  const navWrap = document.getElementById('navWrap');
+  hamburger.addEventListener('click', ()=>{
+    const open = navbar.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('#mobile-menu a').forEach(a=>a.addEventListener('click',()=>{
+    navbar.classList.remove('open'); hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+  }));
+  document.querySelectorAll('.nav-menu a').forEach(a=>{
+    a.addEventListener('mouseenter',()=>{
+      document.querySelectorAll('.nav-menu a').forEach(x=>x.classList.remove('hvr'));
+      if(!a.classList.contains('active')) a.classList.add('hvr');
+    });
+    a.addEventListener('mouseleave',()=>a.classList.remove('hvr'));
+  });
+
+  /* ---------- scroll: progress, nav state, parallax, toTop ---------- */
+  const progress = document.getElementById('progress');
+  const toTop = document.getElementById('toTop');
+  const heroBg = document.getElementById('heroBg');
+  let ticking = false;
+  function onScroll(){
+    const y = window.scrollY;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (h>0 ? (y/h)*100 : 0) + '%';
+    navWrap.classList.toggle('stuck', y > 40);
+    toTop.classList.toggle('show', y > 600);
+    if(heroBg && !reduce && y < window.innerHeight*1.2){
+      heroBg.style.transform = 'scale(1.12) translate3d(4%, calc(6% + '+(y*0.22)+'px),0)';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', ()=>{ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } }, {passive:true});
+  onScroll();
+  toTop.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  /* ---------- reveal on scroll (staggered) ---------- */
+  const revealEls = document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-s');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const siblings = Array.from(entry.target.parentElement.children).filter(c=>c.classList.contains('rv')||c.classList.contains('rv-l')||c.classList.contains('rv-r')||c.classList.contains('rv-s'));
+          const i = Math.max(0, siblings.indexOf(entry.target));
+          entry.target.style.transitionDelay = Math.min(i*90, 540)+'ms';
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:.12, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+
+  /* ---------- counters ---------- */
+  const nums = document.querySelectorAll('.num[data-count]');
+  const fmt = (n)=> n.toLocaleString('en-IN');
+  if('IntersectionObserver' in window){
+    const cio = new IntersectionObserver((es)=>{
+      es.forEach(e=>{
+        if(!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseFloat(el.dataset.count);
+        const dec = parseInt(el.dataset.decimal||'0',10);
+        const suffix = el.dataset.suffix||'';
+        const dur = 1600; const start = performance.now();
+        function tick(now){
+          const p = Math.min((now-start)/dur,1);
+          const eased = 1-Math.pow(1-p,3);
+          let v = target*eased;
+          let out = dec ? (v/Math.pow(10,dec)).toFixed(dec) : fmt(Math.round(v));
+          el.textContent = out + suffix;
+          if(p<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        cio.unobserve(el);
+      });
+    },{threshold:.5});
+    nums.forEach(n=>cio.observe(n));
+  }
+
+  /* ---------- card spotlight ---------- */
+  document.querySelectorAll('.spot').forEach(card=>{
+    card.addEventListener('pointermove', e=>{
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX-r.left)+'px');
+      card.style.setProperty('--my', (e.clientY-r.top)+'px');
+    });
+  });
+
+  /* ---------- subtle 3D tilt on tiles ---------- */
+  if(!reduce && window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.tile').forEach(el=>{
+      el.addEventListener('pointermove', e=>{
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX-r.left)/r.width - .5;
+        const py = (e.clientY-r.top)/r.height - .5;
+        el.style.transform = `translateY(-10px) perspective(800px) rotateX(${(-py*6).toFixed(2)}deg) rotateY(${(px*6).toFixed(2)}deg)`;
+      });
+      el.addEventListener('pointerleave', ()=>{ el.style.transform=''; });
+    });
+  }
+
+  /* ---------- magnetic buttons ---------- */
+  if(!reduce && window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn-gold,.btn-ghost,.join-btn').forEach(btn=>{
+      btn.addEventListener('pointermove', e=>{
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width/2)*.18;
+        const y = (e.clientY - r.top - r.height/2)*.28;
+        btn.style.transform = `translate(${x}px, ${y-2}px)`;
+      });
+      btn.addEventListener('pointerleave', ()=>{ btn.style.transform=''; });
+    });
+  }
+
+  /* ---------- golden dust canvas ---------- */
+  const canvas = document.getElementById('dust');
+  if(canvas && !reduce){
+    const ctx = canvas.getContext('2d');
+    let w,h,parts;
+    const DPR = Math.min(window.devicePixelRatio||1, 2);
+    function size(){
+      w = canvas.width = innerWidth*DPR; h = canvas.height = innerHeight*DPR;
+      canvas.style.width = innerWidth+'px'; canvas.style.height = innerHeight+'px';
+      const count = Math.min(70, Math.round(innerWidth/22));
+      parts = Array.from({length:count},()=>({
+        x: Math.random()*w, y: Math.random()*h,
+        r: (Math.random()*1.6+.5)*DPR,
+        s: (Math.random()*.28+.08)*DPR,
+        d: Math.random()*Math.PI*2,
+        a: Math.random()*.5+.15
+      }));
+    }
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      for(const p of parts){
+        p.y -= p.s; p.d += .008; p.x += Math.sin(p.d)*.32*DPR;
+        if(p.y < -10){ p.y = h+10; p.x = Math.random()*w; }
+        const g = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);
+        g.addColorStop(0,'rgba(255,225,150,'+p.a+')');
+        g.addColorStop(1,'rgba(255,215,120,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r*4,0,Math.PI*2); ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    size(); draw();
+    let rt; addEventListener('resize', ()=>{ clearTimeout(rt); rt=setTimeout(size,200); });
+  }
+})();
+</script>
+</body>
+</html>
