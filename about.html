@@ -112,7 +112,7 @@ img{max-width:100%;display:block}
 /* =========================================================
    4. NAVBAR
 ========================================================= */
-.nav-wrap{position:sticky;top:0;z-index:60;padding:0 30px;transition:padding .4s ease}
+.nav-wrap{position:sticky;top:0;z-index:60;padding:0 12px;transition:padding .4s ease}
 .nav-wrap.stuck{padding-top:0}
 .navbar{position:relative;z-index:40;width:100%;height:132px;margin:12px auto 0;overflow:hidden;
   background:rgba(10,22,48,.34);backdrop-filter:blur(32px) saturate(140%);-webkit-backdrop-filter:blur(32px) saturate(140%);
@@ -131,8 +131,8 @@ img{max-width:100%;display:block}
 .logo-reiki{color:#F5E6C8}
 .logo-sutra{color:#D4AF37;text-shadow:0 0 12px rgba(212,175,55,.35)}
 .logo-subtitle{margin-top:5px;font-family:'Montserrat',sans-serif;font-weight:400;color:#fff;font-size:9.1px;letter-spacing:1.7px;text-transform:uppercase;white-space:nowrap}
-.nav-menu{display:flex;align-items:center;gap:32px;height:100%}
-.nav-menu a{position:relative;font-family:'Poppins',sans-serif;font-weight:500;color:#E0E0E0;text-transform:uppercase;font-size:12.5px;letter-spacing:1.8px;cursor:pointer;transition:color .25s ease,transform .25s ease}
+.nav-menu{display:flex;align-items:center;gap:26px;height:100%}
+.nav-menu a{position:relative;font-family:'Poppins',sans-serif;font-weight:500;color:#E0E0E0;text-transform:uppercase;font-size:12px;letter-spacing:1.5px;cursor:pointer;transition:color .25s ease,transform .25s ease}
 .nav-menu a:hover,.nav-menu a.active{color:#D4AF37}
 .nav-menu a:hover{transform:translateY(-1px)}
 .nav-menu a:focus-visible{outline:2px solid #FFD700;outline-offset:4px;border-radius:2px}
@@ -190,8 +190,8 @@ img{max-width:100%;display:block}
 /* =========================================================
    5. SHARED PRIMITIVES
 ========================================================= */
-.section{position:relative;max-width:1220px;margin:0 auto;padding:64px 40px}
-.section-tight{padding-top:40px;padding-bottom:40px}
+.section{position:relative;max-width:1220px;margin:0 auto;padding:48px 40px}
+.section-tight{padding-top:28px;padding-bottom:28px}
 
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:11px;letter-spacing:3.1px;
   text-transform:uppercase;color:var(--gold);padding:6px 14px 6px 11px;border:1px solid rgba(212,175,55,.28);border-radius:40px;
@@ -239,9 +239,10 @@ img{max-width:100%;display:block}
 /* =========================================================
    6. HERO
 ========================================================= */
-.hero{position:relative;overflow:hidden;padding:0 0 64px;margin-top:-132px;padding-top:132px}
-.hero-bg{position:absolute;inset:-8% 0 0;background:url('aboutuss.png') 58% 38%/cover no-repeat;
-  filter:saturate(1.08) contrast(1.04) brightness(.72);will-change:transform;transform:scale(1.12) translate(4%, 6%)}
+.hero{position:relative;overflow:hidden;padding:0 0 28px;margin-top:-132px;padding-top:132px;
+  min-height:max(72vh, calc(100vw * 910 / 1729 + 132px))}
+.hero-bg{position:absolute;inset:0;background:url('newabout.png') center 30% / 100% auto no-repeat;
+  background-color:#060912;filter:saturate(1.08) contrast(1.04) brightness(.72);will-change:transform;transform:translateY(-3%)}
 .hero-veil{position:absolute;inset:0;background:
   linear-gradient(90deg,rgba(6,9,18,.88) 0%,rgba(6,9,18,.72) 28%,rgba(6,9,18,.32) 52%,rgba(6,9,18,.10) 72%,transparent 100%),
   linear-gradient(180deg,rgba(6,9,18,.35) 0%,transparent 28%,transparent 62%,rgba(6,9,18,.55) 100%),
@@ -274,7 +275,7 @@ img{max-width:100%;display:block}
 @keyframes cue{0%{transform:translateY(0)}100%{transform:translateY(92px)}}
 
 /* stat strip */
-.stat-strip{position:relative;z-index:6;max-width:1140px;margin:-46px auto 0;padding:0 40px}
+.stat-strip{position:relative;z-index:6;max-width:1140px;margin:-72px auto 0;padding:0 40px}
 .stat-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:30px 20px;border-radius:24px}
 .stat{text-align:center;position:relative;padding:6px 14px}
 .stat:not(:last-child)::after{content:"";position:absolute;right:0;top:16%;bottom:16%;width:1px;background:linear-gradient(180deg,transparent,rgba(212,175,55,.28),transparent)}
@@ -415,8 +416,8 @@ img{max-width:100%;display:block}
 /* =========================================================
    13. RESPONSIVE
 ========================================================= */
-@media (max-width:1200px){
-  .nav-menu{gap:20px}.nav-menu a{font-size:11px}
+  @media (max-width:1200px){
+  .nav-menu{gap:14px}.nav-menu a{font-size:10.5px;letter-spacing:1.2px}
   .logo-symbol{width:66px;height:66px}.logo-text{font-size:26.6px}
   .logo-subtitle{font-size:8.5px;letter-spacing:1.3px}.logo-area{min-width:220px;height:132px}
   .contact-item{font-size:11px}.contact-bar{padding-left:380px}.contact-bottom-fade{left:380px;width:210px}
@@ -468,7 +469,7 @@ img{max-width:100%;display:block}
   .hero{margin-top:-102px;padding-top:102px}
   .hero-inner{padding:56px 22px 20px}
   .section{padding:36px 20px}
-  .stat-strip{padding:0 20px;margin-top:-30px}
+  .stat-strip{padding:0 20px;margin-top:-52px}
   .stat-inner{padding:24px 12px}
   .story-card{padding:32px 24px}
   .mv-block{padding:26px 18px}
@@ -529,6 +530,7 @@ img{max-width:100%;display:block}
         <a href="index.html">HOME</a>
         <a href="about.html" class="active">ABOUT</a>
         <a href="#">COURSES</a>
+        <a href="#">SHOP</a>
         <a href="#">RESOURCES</a>
         <a href="#">BLOG</a>
         <a href="#">CONTACT</a>
@@ -544,6 +546,7 @@ img{max-width:100%;display:block}
       <a href="index.html">HOME</a>
       <a href="about.html" class="active">ABOUT</a>
       <a href="#">COURSES</a>
+      <a href="#">SHOP</a>
       <a href="#">RESOURCES</a>
       <a href="#">BLOG</a>
       <a href="#">CONTACT</a>
@@ -805,7 +808,8 @@ img{max-width:100%;display:block}
       <h5>Quick Links</h5>
       <ul>
         <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
-        <li><a href="#">Courses</a></li><li><a href="#">Research</a></li>
+        <li><a href="#">Courses</a></li><li><a href="#">Shop</a></li>
+        <li><a href="#">Research</a></li>
         <li><a href="#">Blog</a></li><li><a href="#">Contact Us</a></li>
       </ul>
     </div>
@@ -879,7 +883,7 @@ img{max-width:100%;display:block}
     navWrap.classList.toggle('stuck', y > 40);
     toTop.classList.toggle('show', y > 600);
     if(heroBg && !reduce && y < window.innerHeight*1.2){
-      heroBg.style.transform = 'scale(1.12) translate3d(4%, calc(6% + '+(y*0.22)+'px),0)';
+      heroBg.style.transform = 'translate3d(0, calc(-3% + '+(y*0.12)+'px),0)';
     }
     ticking = false;
   }
